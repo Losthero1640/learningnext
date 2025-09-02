@@ -1,7 +1,7 @@
 import { connectDB as connect } from "@/dbconfig/dbconfig";
 import { NextRequest, NextResponse } from "next/server";
 import User from "@/models/user.model";
-
+import bcryptjs from "bcryptjs";
 connect();
 
 export async function POST(request: NextRequest) {
@@ -19,6 +19,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid token" }, { status: 400 });
     }
     console.log(user);
+
+    // const isMatch = await bcryptjs.compare(token, user.verifyToken);
+    // if (!isMatch) throw new Error("Invalid or expired token");
 
     user.isVerified = true;
     user.verifyToken = undefined;

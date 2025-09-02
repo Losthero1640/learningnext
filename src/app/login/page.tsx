@@ -68,6 +68,9 @@ export default function LoginPage() {
       >
         Login here
       </button>
+      <Link href="/forgot-password" className="text-blue-500 mb-2 hover:underline">
+        Forgot Password?
+      </Link>
       <Link href="/signup">Visit Signup page</Link>
     </div>
   );

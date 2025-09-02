@@ -43,8 +43,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       message: "User created successfully",
       success: true,
-      savedUser,
-    });
+
+    });//user:savedUser nahi karenge toh better hai kyunki serialization ka khatra nahi raha aur error ka chance kam ho gaya
   } catch (error: any) {
     console.error("Signup error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
